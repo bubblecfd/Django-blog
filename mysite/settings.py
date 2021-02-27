@@ -38,6 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # new
+    
+    'allauth', # new
+    'allauth.account', # new
+    'allauth.socialaccount', # new
+    'allauth.socialaccount.providers.facebook',
+    
     'polling',
     'blogging',
 ]
@@ -124,3 +131,14 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
+
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+SITE_ID = 1
+
+#ACCOUNT_EMAIL_VERIFICATION = 'none'
+
